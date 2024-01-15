@@ -54,7 +54,7 @@ class ContactformOverride extends Contactform
                 [],
                 'Modules.Contactform.Shop'
             );
-        } elseif ((!Tools::getValue('from')) || Tools::getValue('blockcontactspam_answer') != Configuration::get('CONTACTFORM_ANSWER')) {
+        } elseif ((!Tools::getValue('from')) || Tools::strtolower(Tools::getValue('blockcontactspam_answer')) != Tools::strtolower(Configuration::get('CONTACTFORM_ANSWER'))) {
             $this->context->controller->errors[] = "La question anti spam n'est pas correct";
         } elseif ($url !== ''
             || empty($serverToken)
