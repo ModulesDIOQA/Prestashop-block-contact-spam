@@ -104,7 +104,7 @@ class blockcontactspam extends Module
      */
     public function getContent()
     {
-        $html = $this->renderForm();
+        $html = "";
 
         if (Tools::getValue(self::SUBMIT_NAME)) {
 
@@ -122,6 +122,10 @@ class blockcontactspam extends Module
             }
             
         }
+
+        $html .= $this->renderForm();
+
+        $html .= $this->display(__FILE__, 'views/templates/admin/configure.tpl');
 
         return $html;
     }
